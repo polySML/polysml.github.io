@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>polySML</title>
+    <link>https://polysml.github.io/</link>
+    <description>Recent content on polySML</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>copyright &amp;copy; 2021 [polySML](http://www.ciac.cas.cn/) all right reserved</copyright>
+    <lastBuildDate>Sat, 12 Sep 2020 14:51:12 +0600</lastBuildDate><atom:link href="https://polysml.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To install polySML</title>
+      <link>https://polysml.github.io/model/installation/</link>
+      <pubDate>Sat, 12 Sep 2020 14:51:12 +0600</pubDate>
+      
+      <guid>https://polysml.github.io/model/installation/</guid>
+      <description>polySML: structure &amp;amp; machine learning for polymer materials This suite of standalone software is to predict mechanical, thermal, conductivity, filtration and separational etc.</description>
+    </item>
+    
+    <item>
+      <title>polySML - iV</title>
+      <link>https://polysml.github.io/model/polysml_iv/</link>
+      <pubDate>Sat, 12 Sep 2020 12:52:36 +0600</pubDate>
+      
+      <guid>https://polysml.github.io/model/polysml_iv/</guid>
+      <description>PolySML: structure &amp;amp; machine learning for polymer materials This suite of standalone software is to predict mechanical, thermal, conductivity, filtration and separational etc.</description>
+    </item>
+    
+    <item>
+      <title>polySML - WFM</title>
+      <link>https://polysml.github.io/model/polysml_wfm/</link>
+      <pubDate>Sat, 12 Sep 2020 12:52:36 +0600</pubDate>
+      
+      <guid>https://polysml.github.io/model/polysml_wfm/</guid>
+      <description>polySML: structure &amp;amp; machine learning for polymer materials This suite of standalone software is to predict mechanical, thermal, conductivity, filtration and separational etc.</description>
+    </item>
+    
+  </channel>
+</rss>
