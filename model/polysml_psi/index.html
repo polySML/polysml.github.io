@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 	<meta charset="utf-8">
-	<title>polySML - WFM</title>
+	<title>polySML - PSI</title>
 
 	<!-- mobile responsive meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -93,257 +93,87 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
-                <h1>polySML - WFM</h1>
+                <h1>polySML - PSI</h1>
                 <ul class="list-inline mb-50">
                     <li class="list-inline-item"><a href="/author/polysml/">polySML</a></li>
                     <li class="list-inline-item">Saturday, Sep 12, 2020</li>
                 </ul>
-                <img class="img-fluid mb-50 lozad" data-src="https://polysml.github.io/images/blog/WFM_1.jpg" alt="model-image">
+                <img class="img-fluid mb-50 lozad" data-src="https://polysml.github.io/images/blog/PSI_1.png" alt="model-image">
             </div>
             <div class="col-lg-8 offset-lg-2">
                 <div class="post-single-content">
-                    <h1 id="polysml-structure--machine-learning-for-polymer-materials">polySML: structure &amp; machine learning for polymer materials</h1>
-<p>This suite of standalone software is to predict mechanical, thermal, conductivity, filtration and separational etc. properties for variant polymer materials.</p>
-<h2 id="requirements">Requirements</h2>
-<p>Win7/vista/win8/win10 64-bit operating system, 105M RAM, 400M storage</p>
-<p>Download Url: <a href="https://github.com/polySML/polySML/releases/download/v0.0.1/PolySML.zip">https://github.com/polySML/polySML/releases/download/v0.0.1/PolySML.zip</a></p>
-<p>It takes time to load, please be patient.</p>
-<h2 id="usage">Usage</h2>
-<p>This model provides the prediction for three critical performance indexes accounting micro-/ultra-/nano-filtration membranes and the evaluation of the overall membrane performance grade.</p>
+                    <p>﻿﻿﻿# polySML-PSI: structure &amp; machine learning for polymer materials&ndash;polymer-solvent interactions</p>
+<p>This suite of standalone software is to predict mechanical, thermal, conductivity, filtration and separation etc. properties for variant polymer materials.</p>
+<h2 id="1-purpose">1 Purpose</h2>
+<p>This model provides the prediction for three interaction parameters between polymer and solvent and the evaluation of the good/poor solvent for polymers.</p>
+<h2 id="2-requirements">2 Requirements</h2>
+<p>Windows operation systems, including win7/vista/win8/win10 <strong>64Bit</strong>, at least 800M RAM and 1.5G free disk space needed.</p>
+<blockquote>
+<p><strong>Note:</strong> Spaces and special characters are not permitted in the installation directory.</p>
+</blockquote>
+<h2 id="3-usage">3 Usage</h2>
 <ol>
 <li>
-<p>Input correct <strong>SMILES</strong> for addictive in polymer solution (SMILES can be queried from Pubchem <a href="https://pubchem.ncbi.nlm.nih.gov/">https://pubchem.ncbi.nlm.nih.gov/</a> ).
-<figure>
-    <img src="/images/blog/WFM_2.bmp"
-         alt="image-20200710230313673" height="450px"/> 
-</figure>
-</p>
+<p>Input correct <strong>SMILES</strong>  for polymer (trimer) end with * (SMILES can be queried from Pubchem <a href="https://pubchem.ncbi.nlm.nih.gov/">https://pubchem.ncbi.nlm.nih.gov/</a> ).</p>
 </li>
 <li>
-<p>Parameters for <strong>composition, fabrication</strong> and <strong>test condition</strong>.</p>
+<p>Input correct <strong>SMILES</strong>  for solvent.</p>
+</li>
+<li>
+<p>Input testing temperature.</p>
+</li>
+<li>
+<p>Check all the inputs correct and click <strong>Submit</strong> for predictions.</p>
 <figure>
-    <img src="/images/blog/WFM_3.bmp"
-         alt="image-20200710230313673" height="450px"/> 
+    <img src="/images/blog/PSI_1.png"
+         alt="PSI_SNAPSHOT" height="450px"/> 
 </figure>
 
-<figure>
-    <img src="/images/blog/WFM_4.bmp"
-         alt="image-20200710230313673" height="450px"/> 
-</figure>
-
-<figure>
-    <img src="/images/blog/WFM_5.bmp"
-         alt="image-20200710230313673" height="450px"/> 
-</figure>
-
-</li>
-<li>
-<p>Click <strong>Submit</strong> and check all the inputs correct.</p>
-</li>
-<li>
-<p>Click <strong>GO</strong> for predictions.
-<figure>
-    <img src="/images/blog/WFM_6.bmp"
-         alt="image-20200710230313673" height="450px"/> 
-</figure>
-</p>
-</li>
-<li>
-<p>Click <strong>Save As</strong> to save outputs.
-<figure>
-    <img src="/images/blog/WFM_7.bmp"
-         alt="image-20200710230313673" height="450px"/> 
-</figure>
-</p>
 </li>
 </ol>
-<h2 id="predictor-wfm_poly">Predictor: WFM_poly</h2>
-<p>This model provides the prediction for three critical performance indexes accounting micro-/ultra-/nano-filtration membranes and the evaluation of the overall membrane performance grade.</p>
-<h3 id="regression-models">Regression models</h3>
-<h4 id="permeabilitylp">Permeability(Lp)</h4>
-<p>The permeability of membrane is defined as:
-$$
-Lp=Jv/(ΔP×p_0)Lp=Jv/(ΔP×p_0)
+<h2 id="4-predictor-polysml-psi">4 Predictor: polySML-PSI</h2>
+<h3 id="41-regression-models">4.1 Regression models</h3>
+<h4 id="flory-huggins-interaction-parameterχ">Flory-Huggins interaction parameter(χ)</h4>
+<p>The $χ$ is defined through the mixing free energy ($ΔG_{mix}$) for a polymer solution, written as:</p>
+<p>$$
+\frac{\Delta G_{mix}}{RT} = \frac{\phi_P}{N}ln \phi_P +  (1 - ln \phi_P) ln (1- \phi_P) + \chi\phi_P(1-\phi_P) 
 $$</p>
-<p>Where $Jv$ is the volumetric filtrate flux $(m/s)$, $ΔP$ is the transmembrane pressure (Pa), $p0$ is the unit permeability coefficient ($1ms^{−1}Pa^{−1}$)</p>
-<h4 id="selectivity1s01s0">Selectivity(1/S01/S0)</h4>
-<p>The selectivity of membrane is defined as:
-$$
-1/S_0=1/(1−R)=C_f/C_{p1}/S_0=1/(1−R)=C_f/C_p
+<p>Where $ϕ_P$ is the volume fraction of polymer, and $χ$ can be calculated by $χ = 0.5(ε_{PP}+ε_{SS}) - ε_{PS}$, with $ε_{PP}$, $ε_{SS}$, $ε_{PS}$ are the paired interactions for polymer-polymer, solvent-solvent and polymer-solvent, respectively.</p>
+<h4 id="hildebrand-solubility-parameterδδ">Hildebrand solubility parameter(Δδ)</h4>
+<p>The Hildebrand solubility ($Δδ$) is derived from the difference for the square root of cohesive energy density ($e_{coh}$, MPa) between polymer and solvent:</p>
+<p>$$
+\Delta \delta =|\delta_S - \delta_P|=|e_{coh,S}^{1/2}- e_{coh,P}^{1/2}|
 $$</p>
-<p>Where R is the rejection ratio (%), $Cp$ and $Cf$ are the concentrations of substances in the permeation and feed flux (wt%).</p>
-<h4 id="trade-off-coefficienttr">Trade-off coefficient(Tr)</h4>
-<p>The trade-off coefficient of membrane is defined as:
-$$
-Tr=(2×Lp×1/S_0)/(Lp+1/S_0)Tr=(2×Lp×1/S_0)/(Lp+1/S_0)
+<h4 id="hansen-solubility-parameterred">Hansen solubility parameter(RED)</h4>
+<p>The RED is the relative distance of Ra against the interaction radius ($R_0$) of polymer, defined as:</p>
+<p>$$
+RED=\frac{\sqrt{4(\delta D_P-\delta D_S)^2) + (\delta P_P-\delta P_S)^2) + (\delta H_P-\delta H_S)^2}}{R_0} 
 $$</p>
-<h3 id="classification-models">Classification models</h3>
-<p>According to the “trade-off curve”, we got four curves which can divide the macromolecules and salts data points into 50:50 and 20:80. The output result is “Y” means that the performance of the membrane is above the trade-off curve, on the contrary, the result is “N”.</p>
-<h4 id="features"><strong>Features</strong></h4>
-<p>Features used for prediction models are listed below:</p>
-<table>
-<thead>
-<tr>
-<th><strong>ID</strong></th>
-<th><strong>Feature</strong></th>
-<th><strong>Unit</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1</strong></td>
-<td>p_C</td>
-<td>wt%</td>
-<td>The weight fraction of base polymer in casting solution</td>
-</tr>
-<tr>
-<td><strong>2</strong></td>
-<td>a_C</td>
-<td>wt%</td>
-<td>The weight fraction of the addictive in casting solution</td>
-</tr>
-<tr>
-<td><strong>3</strong></td>
-<td>s_C</td>
-<td>wt%</td>
-<td>The weight fraction of the solvent in casting solution</td>
-</tr>
-<tr>
-<td><strong>4</strong></td>
-<td>s_Disp</td>
-<td>-</td>
-<td>Hansen solubility parameter (Dispersion force for solvent)</td>
-</tr>
-<tr>
-<td><strong>5</strong></td>
-<td>p_Disp</td>
-<td></td>
-<td>Hansen solubility parameter (Dispersion force for monomer in polymer)</td>
-</tr>
-<tr>
-<td><strong>6</strong></td>
-<td>RED_S</td>
-<td></td>
-<td>The relative energy difference between base polymer and solvent</td>
-</tr>
-<tr>
-<td><strong>7</strong></td>
-<td>RED_NS</td>
-<td></td>
-<td>The relative energy difference between base polymer and non-solvent</td>
-</tr>
-<tr>
-<td><strong>8</strong></td>
-<td>Bp</td>
-<td>$^oC$</td>
-<td>Boiling point for solvent and non-solvent</td>
-</tr>
-<tr>
-<td><strong>9</strong></td>
-<td>Vp</td>
-<td>mmHg</td>
-<td>The saturated vapor pressure at 25$^oC$ for solvent and non-solvent</td>
-</tr>
-<tr>
-<td><strong>10</strong></td>
-<td>HDT</td>
-<td>$^oC$</td>
-<td>Heat Deflection Temperature with loading of 1.8MPa</td>
-</tr>
-<tr>
-<td><strong>11</strong></td>
-<td>coag_T</td>
-<td>$^oC$</td>
-<td>The temperature of coagulation bath</td>
-</tr>
-<tr>
-<td><strong>12</strong></td>
-<td>pre_T</td>
-<td>$^oC$</td>
-<td>The temperature during membrane formation</td>
-</tr>
-<tr>
-<td><strong>13</strong></td>
-<td>exposed.time</td>
-<td>s</td>
-<td>The exposed time before immersing the casting solution into the non-solvent</td>
-</tr>
-<tr>
-<td><strong>14</strong></td>
-<td>wet_mem_thick</td>
-<td>μm</td>
-<td>The thickness of solution on the substrate controlled by the scraper</td>
-</tr>
-<tr>
-<td><strong>15</strong></td>
-<td>flux_P</td>
-<td>kPa</td>
-<td>Transmembrane pressure in performance measurement</td>
-</tr>
-<tr>
-<td><strong>16</strong></td>
-<td>rej_C</td>
-<td>wt%</td>
-<td>The concentration of substance (protein, salt etc,) in feeding flux</td>
-</tr>
-<tr>
-<td><strong>17</strong></td>
-<td>rej_type</td>
-<td></td>
-<td>The type of separation substance</td>
-</tr>
-<tr>
-<td><strong>18</strong></td>
-<td>rej_charge</td>
-<td>C</td>
-<td>The charge of separation substance</td>
-</tr>
-<tr>
-<td><strong>19</strong></td>
-<td>rej_r</td>
-<td>nm</td>
-<td>The radius of rejection substance</td>
-</tr>
-<tr>
-<td><strong>20</strong></td>
-<td>porosity</td>
-<td>%</td>
-<td>Volume fraction of water accessible voids in membrane</td>
-</tr>
-<tr>
-<td><strong>21</strong></td>
-<td>CA</td>
-<td>o</td>
-<td>Water static contact angle on membrane surface</td>
-</tr>
-</tbody>
-</table>
-<h2 id="license">License</h2>
-<p>The copyright for this software suite is owe to the authors, academic free for current version and commercial usages please contact the corresponding author <a href="mailto:yunqi@ciac.ac.cn">yunqi@ciac.ac.cn</a>.</p>
-<h2 id="references">References</h2>
-<p>User are encouraged to cite the following references for special predictors.</p>
+<p>Here $δ_D$ for dispersion (van der Waals), $δ_P$ for polarity (dipole moment) and $δ_H$ for hydrogen bonding.</p>
+<h3 id="42-classification-models">4.2 Classification models</h3>
+<p>According to the cutoff values ($χ=0.5$, $Δδ=2.0$ $MPa^{1/2} $, $RED$=1.0 ), we got classification models which can divide the solvent into good or poor. The output result is <strong>Y</strong> means that good compatibility for a pair of polymer and solvent, on the contrary, the result is <strong>N</strong>.</p>
+<h2 id="5-references">5 References</h2>
+<p>Users are encouraged to cite the following references for special predictors.</p>
 <ol>
 <li>
-<p>Liu T, Liu L, Cui F, Ding F, &amp; Li Y Predict the performance of polyvinylidene fluoride, polyethersulfone and polysulfone filtration membranes using machine learning, J. Mater. Chem. A, 2020,8, 21862-21871</p>
+<p>Liu T, Liu L, Cui F, Ding F, &amp; Li Y Predict the performance of Polyvinylidene fluoride, ployethersulfone and polysulfone micro/ultra/nano-filtration membranes, 2020, J. Mater. Chem. A, 2020, 8,21862–21871.</p>
 </li>
 <li>
 <p>Liu L, Chen W, Liu T, Kong X, Zheng J, &amp; Li Y Rational design of hydrocarbon-based sulfonated copolymers for proton exchange membranes J. Mater. Chem. A, 2019 7:11847-11857.</p>
 </li>
 <li>
-<p>Liu L, Chen W, &amp; Li Y A Statistical Study of Proton Conduction in Nafion?-based Composite Membranes: Prediction, Filler Selection and Fabrication Methods J. Membr. Sci., 2018 549:393-402.</p>
+<p>Liu L, Chen W, &amp; Li Y A Statistical Study of Proton Conduction in $Nafion^®$-based Composite Membranes: Prediction, Filler Selection and Fabrication Methods J. Membr. Sci., 2018 549:393-402.</p>
 </li>
 <li>
 <p>Liu L, Chen W, &amp; Li Y An overview of the proton conductivity of nafion membranes through a statistical analysis J. Membr. Sci., 2016 504:1-9.</p>
-<p><strong>Release log:</strong> 201912 version v0, construct the UI and common block. WFM_poly model was integrated. 202003 version v1.0.0 predictor about polymer materials for water filtration membranes(WFM_poly) was integrated.</p>
 </li>
 </ol>
-<h2 id="limitation">Limitation</h2>
-<p>Current models mainly focus on the types of polymers, additions, solvents reported. For novel compounds, chemical structures, predictions are made based on knowledge, confidence needs validation in blind-test. We are not guarantee the prediction is fully accurate but guidelines are possible.</p>
-<h2 id="bug-report-and-suggestions">Bug report and suggestions</h2>
+<h2 id="6-limitation">6 Limitation</h2>
+<p>Current models mainly focus on the types of polymers and solvents reported. For novel materials, chemical structures, predictions are made based on knowledge, confidence needs validation in blind-test. We are not guarantee the prediction is fully accurate but guidelines are possible.</p>
+<h2 id="7-bug-report-and-suggestions">7 Bug report and suggestions</h2>
 <p>Please contact either <a href="mailto:lyliu@ciac.ac.cn">lyliu@ciac.ac.cn</a> or <a href="mailto:yunqi@ciac.ac.cn">yunqi@ciac.ac.cn</a> for bugs or suggestions.</p>
-<h2 id="about-us">About us</h2>
-<p>We are a research group didicate in structure and machine learning study on polymer materials. We are welcoming suggestions and collaborations. Contact Prof. Yunqi Li for further information.</p>
+<h2 id="8-about-us">8 About us</h2>
+<p>We are a research group dedicated in structure and machine learning study on polymer materials. We are welcoming suggestions and collaborations. Contact Prof. Yunqi Li for further information.</p>
 
                 </div>
                  
@@ -351,7 +181,7 @@ $$</p>
 <div class="social-share pt-4">
 	<h4>Share:</h4>
 	
-	<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f" target="_blank"
+	<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f" target="_blank"
 		rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -363,7 +193,7 @@ $$</p>
 	</a>
 
 	
-	<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=polySML%20-%20WFM&amp;url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f"
+	<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=polySML%20-%20PSI&amp;url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f"
 		target="_blank" rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -376,7 +206,7 @@ $$</p>
 	</a>
 
 	
-	<a class="resp-sharing-button__link" href="https://plus.google.com/share?url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f" target="_blank"
+	<a class="resp-sharing-button__link" href="https://plus.google.com/share?url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f" target="_blank"
 		rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--google resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -389,7 +219,7 @@ $$</p>
 	</a>
 
 	
-	<a class="resp-sharing-button__link" href="mailto:?subject=polySML%20-%20WFM&amp;body=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f" target="_self"
+	<a class="resp-sharing-button__link" href="mailto:?subject=polySML%20-%20PSI&amp;body=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f" target="_self"
 		rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -403,7 +233,7 @@ $$</p>
 
 	
 	<a class="resp-sharing-button__link"
-		href="https://reddit.com/submit/?url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f&amp;resubmit=true&amp;title=polySML%20-%20WFM" target="_blank"
+		href="https://reddit.com/submit/?url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f&amp;resubmit=true&amp;title=polySML%20-%20PSI" target="_blank"
 		rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -416,7 +246,7 @@ $$</p>
 	</a>
 
 	
-	<a class="resp-sharing-button__link" href="whatsapp://send?text=polySML%20-%20WFM%20https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f" target="_blank"
+	<a class="resp-sharing-button__link" href="whatsapp://send?text=polySML%20-%20PSI%20https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f" target="_blank"
 		rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -429,7 +259,7 @@ $$</p>
 	</a>
 
 	
-	<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=polySML%20-%20WFM&amp;url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_wfm%2f"
+	<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=polySML%20-%20PSI&amp;url=https%3a%2f%2fpolysml.github.io%2fmodel%2fpolysml_psi%2f"
 		target="_blank" rel="noopener" aria-label="">
 		<div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
 			<div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
